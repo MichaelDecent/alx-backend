@@ -52,4 +52,4 @@ class Server:
 
         indexes = index_range(page, page_size)
         dataset = __class__.dataset(self)
-        return dataset[indexes[0] : indexes[1]]
+        return dataset[indexes[0]:indexes[1]]
