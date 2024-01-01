@@ -67,22 +67,14 @@ class Server:
 
         total_pages = math.ceil(len(dataset) / page_size)
 
-        if (page < total_pages):
-            next_page = page+1
-        else:
-            next_page = None
+        prev_page = page - 1 if page > 1 else None
+        next_page = page + 1 if page < total_pages else None
 
-        # estimating the previous page
-        if (page == 1):
-            prev_page = None
-        else:
-            prev_page = page - 1
-    
         return {
             "page_size": len(data),
             "page": page,
             "data": data,
             "next_page": next_page,
             "prev_page": prev_page,
-            "total_pages": total_pages,
+            "total_pages": total_pages
         }
