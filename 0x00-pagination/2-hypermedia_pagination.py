@@ -58,7 +58,9 @@ class Server:
             return []
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict[str, Any]:
-        """ """
+        """
+        returns a dictionary containing the following key-value pairs
+        """
         assert type(page) is int and page > 0
         assert type(page_size) is int and page_size > 0
 
@@ -66,9 +68,7 @@ class Server:
         data = self.get_page(page, page_size)
 
         total_pages = math.ceil(len(dataset) / page_size)
-
-        start, end = index_range(page, page_size)
-
+        
         prev_page = page - 1 if page > 1 else None
         next_page = page + 1 if page < total_pages else None
 
