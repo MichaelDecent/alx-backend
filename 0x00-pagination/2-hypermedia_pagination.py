@@ -67,6 +67,8 @@ class Server:
 
         total_pages = math.ceil(len(dataset) / page_size)
 
+        start, end = index_range(page, page_size)
+
         prev_page = page - 1 if page > 1 else None
         next_page = page + 1 if page < total_pages else None
 
