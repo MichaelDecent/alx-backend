@@ -9,6 +9,7 @@ from collections import OrderedDict
 
 class LRUCache(BaseCaching):
     """Class oimplementation of LRU cache policy"""
+
     def __init__(self):
         super().__init__()
         self.cache_data = OrderedDict()
@@ -21,7 +22,7 @@ class LRUCache(BaseCaching):
         if key not in self.cache_data:
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                 discarded_item = self.cache_data.popitem(last=False)
-                print('DISCARD: {}'.format(discarded_item[0]))
+                print("DISCARD: {}".format(discarded_item[0]))
         self.cache_data[key] = item
         self.cache_data.move_to_end(key, last=True)
 
