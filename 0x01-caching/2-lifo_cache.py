@@ -1,14 +1,14 @@
 #!/usr/bin/python3
 """
-This Module contain a class FIFO Cache that inherites from BaseCaching
+This Module contain a class LIFO Cache that inherites from BaseCaching
 """
 from base_caching import BaseCaching
 from collections import deque
 
 
-class FIFOCache(BaseCaching):
+class LIFOCache(BaseCaching):
     """
-    FIFO Cache Algorithm
+    LIFO Cache Algorithm
     """
 
     def __init__(self):
@@ -25,13 +25,12 @@ class FIFOCache(BaseCaching):
                 return
 
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
-                last_key = self.keys.popleft()
+                last_key = self.keys.pop()
                 self.cache_data.pop(last_key)
                 print(f"DISCARD: {last_key}")
 
             self.keys.append(key)
             self.cache_data[key] = item
-
 
     def get(self, key):
         """Get an item by key"""
