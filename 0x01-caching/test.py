@@ -1,7 +1,7 @@
-my_dict = {'a': 1, 'b': 2, 'c': 3}
+# Sample dictionary
+my_dict = {'a': 10, 'b': 20, 'c': 15, 'd': 30}
 
-# Remove and return the last inserted key-value pair
-removed_item = my_dict['a']
-print("Removed item:", removed_item)
+# Getting the maximum key from the dictionary
+max_key = max(my_dict.keys())
 
-print("Updated dictionary:", my_dict)
+print("Maximum key in the dictionary:", max_key)

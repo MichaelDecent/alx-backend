@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """This module contains the implementation of
 one of the caching policy, LFU - Least Frequently
-Used"""
+Used
+"""
 
 from base_caching import BaseCaching
 from collections import OrderedDict
