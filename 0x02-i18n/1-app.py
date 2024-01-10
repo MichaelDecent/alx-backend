@@ -21,7 +21,7 @@ class Config(object):
 
 
 @app.route("/")
-def home():
+def home() -> str:
     """
     handles the home route
     """
