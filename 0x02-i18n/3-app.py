@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-This Modules initailizes the flask app 
+This Modules initailizes the flask app
 """
 from flask import Flask, render_template, request
 from flask_babel import Babel, _
@@ -8,6 +8,7 @@ from flask_babel import Babel, _
 app = Flask(__name__)
 
 babel = Babel(app)
+
 
 class Config(object):
     """
@@ -24,6 +25,7 @@ def get_locale() -> str:
     This is used to make the choose the most preperred language
     """
     return request.accept_languages.best_match(app.config["LANGUAGES"])
+
 
 app.config.from_object(Config)
 
