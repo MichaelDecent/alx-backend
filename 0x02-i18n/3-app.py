@@ -3,8 +3,11 @@
 This Modules initailizes the flask app 
 """
 from flask import Flask, render_template, request
-from flask_babel import Babel
+from flask_babel import Babel, _
 
+app = Flask(__name__)
+
+babel = Babel(app)
 
 class Config(object):
     """
@@ -16,17 +19,13 @@ class Config(object):
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
 
-app = Flask(__name__)
-babel = Babel(app)
-app.config.from_object(Config)
-
-
-@babel.localeselector
 def get_locale() -> str:
     """
     This is used to make the choose the most preperred language
     """
     return request.accept_languages.best_match(app.config["LANGUAGES"])
+
+app.config.from_object(Config)
 
 
 @app.route("/")
@@ -38,4 +37,4 @@ def home() -> str:
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run()
